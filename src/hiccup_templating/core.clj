@@ -10,6 +10,8 @@
   (GET "/" [] (layout/application "Home" (contents/index)))
   (GET "/hello" [] (layout/application "Hello ???" (contents/hello)))
   (GET "/subscribe" [] (layout/application "Subscrition" (contents/subscribe)))
+  (GET "/pagination" [] (layout/application "Pagination" (contents/pagination)))
+  (GET "/pages/:id" [id]  (contents/page id))
   (route/resources "/")
   (ANY "*" [] (route/not-found (layout/application "Page Not Found" (contents/not-found)))))
 

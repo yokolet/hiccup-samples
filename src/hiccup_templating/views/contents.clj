@@ -40,6 +40,15 @@
    [:pre "form = {{ user | json }}"]]
   )
 
+(defn pagination []
+  [:div {:ng-controller "PaginationCtrl" :class "well"}
+   [:pre "[Browser] Current page: {{currentPage}}. [Server] {{partial}}"]
+   [:pagination {:total-items "totalItems" :page "currentPage" :on-select-page "displayPartial(page)"}]]
+  )
+
+(defn page [id]
+  (str "Got id: " id))
+
 (defn not-found []
   [:div {:class "well"}
    [:h1 {:class "info-worning"} "Page Not Found"]
