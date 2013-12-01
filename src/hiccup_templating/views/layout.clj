@@ -2,12 +2,13 @@
   (:use [hiccup.page :only (html5 include-css include-js)]))
 
 (defn application [title & content]
-  (html5 {:ng-app "" :lang "en"}
+  (html5 {:ng-app "myApp" :lang "en"}
          [:head
           [:title title]
-          (include-css "/css/bootstrap.min.css")
-          (include-js "/js/jquery-1.10.2.min.js")
-          (include-js "/js/bootstrap.min.js")
-          (include-js "https://ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular.min.js")
+          (include-css "css/bootstrap.min.css")
+          (include-js "http://code.angularjs.org/1.2.3/angular.min.js")
+          (include-js "js/ui-bootstrap-tpls-0.7.0.min.js")
+          (include-js "js/script.js")
+
           [:body
-           [:div {:class "container"} content]]]))
+           [:div {:class "container"} content ]]]))

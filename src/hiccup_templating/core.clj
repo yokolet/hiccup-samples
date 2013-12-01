@@ -9,6 +9,7 @@
 (defroutes routes
   (GET "/" [] (layout/application "Home" (contents/index)))
   (GET "/hello" [] (layout/application "Hello ???" (contents/hello)))
+  (GET "/subscribe" [] (layout/application "Subscrition" (contents/subscribe)))
   (route/resources "/")
   (ANY "*" [] (route/not-found (layout/application "Page Not Found" (contents/not-found)))))
 

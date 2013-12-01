@@ -1,5 +1,5 @@
 (ns hiccup-templating.views.contents
-  (:use [hiccup.form :only (label text-field)]
+  (:use [hiccup.form]
         [hiccup.element :only (link-to)]))
 
 (defn index []
@@ -7,7 +7,7 @@
    [:h1 {:class "text-success"} "Hello Hiccup"]])
 
 (defn hello []
-  [:div
+  [:div {:class "well"}
    [:h1 {:class "text-info"} "Hello Hiccup and Angular"]
    [:div {:class "row"}
     [:div {:class "col-md-2 text-right"}
@@ -17,8 +17,31 @@
    [:hr]
    [:h1 {:class "text-success"} "Hello {{yourName}}!"]])
 
+(defn labeled-radio [label]
+  [:label (radio-button {:ng-model "user.gender"} "user.gender" false label)
+   (str label "    ")])
+
+(defn subscribe []
+  [:div {:class "well"}
+   [:form {:novalidate "" :role "form"}
+    [:div {:class "form-group"}
+     (label {:class "control-label"} "email" "Email")
+     (email-field {:class "form-control" :placeholder "Email" :ng-model "user.email"} "user.email")]
+    [:div {:class "form-group"}
+     (label {:class "control-label"} "password" "Password")
+     (password-field {:class "form-control" :placeholder "Password" :ng-model "user.password"} "user.password")]
+    [:div {:class "form-group"}
+     (label {:class "control-label"} "gender" "Gender")
+     [:br]
+     (reduce conj [:div {:class "btn-group"}] (map labeled-radio ["male" "female" "other"]))]
+    [:div {:class :form-group}
+     [:label
+      (check-box {:ng-model "user.remember"} "user.remember-me") " Remember me"]]]
+   [:pre "form = {{ user | json }}"]]
+  )
+
 (defn not-found []
-  [:div
+  [:div {:class "well"}
    [:h1 {:class "info-worning"} "Page Not Found"]
    [:p "There's no requested page. "]
    (link-to {:class "btn btn-primary"} "/" "Take me to Home")])
