@@ -8,11 +8,11 @@
 
 (defn hello []
   [:div {:class "well"}
-   [:h1 {:class "text-info"} "Hello Hiccup and Angular"]
+   [:h1 {:class "text-info"} "Hello Hiccup and AngularJS"]
    [:div {:class "row"}
-    [:div {:class "col-md-2 text-right"}
+    [:div {:class "col-lg-2"}
      (label "name" "Name:")]
-    [:div {:class "col-md-4"}
+    [:div {:class "col-lg-4"}
      (text-field {:class "form-control" :ng-model "yourName" :placeholder "Enter a name here"} "your-name")]]
    [:hr]
    [:h1 {:class "text-success"} "Hello {{yourName}}!"]])
@@ -32,19 +32,16 @@
      (password-field {:class "form-control" :placeholder "Password" :ng-model "user.password"} "user.password")]
     [:div {:class "form-group"}
      (label {:class "control-label"} "gender" "Gender")
-     [:br]
      (reduce conj [:div {:class "btn-group"}] (map labeled-radio ["male" "female" "other"]))]
-    [:div {:class :form-group}
+    [:div {:class "form-group"}
      [:label
       (check-box {:ng-model "user.remember"} "user.remember-me") " Remember me"]]]
-   [:pre "form = {{ user | json }}"]]
-  )
+   [:pre "form = {{ user | json }}"]])
 
 (defn pagination []
   [:div {:ng-controller "PaginationCtrl" :class "well"}
    [:pre "[Browser] Current page: {{currentPage}}. [Server] {{partial}}"]
-   [:pagination {:total-items "totalItems" :page "currentPage" :on-select-page "displayPartial(page)"}]]
-  )
+   [:pagination {:total-items "totalItems" :page "currentPage" :on-select-page "displayPartial(page)"}]])
 
 (defn page [id]
   (str "Got id: " id))
