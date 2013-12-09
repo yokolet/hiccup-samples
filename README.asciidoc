@@ -19,6 +19,8 @@ Hiccup(https://github.com/weavejester/hiccup) is one of the choices since it use
 
 Let's begin to use Hiccup and see how we can use it. The first step would be to try it out on repl. This is handy to know what Hiccup function prints out what.
 
+===== Recipe 1 Repl
+
 First, create a project and add Hiccup to your project.clj:
 
 .project.clj
@@ -42,6 +44,8 @@ user=> (html5 {:lang "en"} [:head (include-js "myscript.js") (include-css "mysty
 "<!DOCTYPE html>\n<html lang=\"en\"><head><script src=\"myscript.js\" type=\"text/javascript\"></script><link href=\"mystyle.css\" rel=\"stylesheet\" type=\"text/css\"></head><body><div><h1 class=\"inf\
 o\">Hiccup</h1></div></body></html>"
 ----
+
+===== Recipe 2 Simple pages
 
 Before going further to code Hiccup more, we need some sort of web application.
 Since Hiccup is the html rendering library for a web application,
@@ -183,6 +187,7 @@ http://localhost:8080/somewhere. This request goes to the not-found function and
 
 image:images/404_page.png[404 page]
 
+===== Recipe 3 AngularJS
 
 Next, we will use AngularJS with Hiccup.
 
@@ -218,6 +223,8 @@ We got the route to "/hello". When this page is requested, the hello function re
 image:images/hello_page.png[Hello page]
 
 You may have noticed that we used link-to in not-found function, and text-field in hello function. Hiccup provides functions for well-used html tags. The next example is a html forms.
+
+===== Recipe 4 Form
 
 Again, let's add a new route to core.clj. Our new routes will be as in below:
 
@@ -263,6 +270,7 @@ We can see the form by requesting /subscribe. The image below is after clicking 
 
 image:images/subscribe_page.png[Form sample]
 
+===== Recipe 5 Pagination
 
 The last example is a simple pagination.
 As we did so far, let's add a new route and functions:
