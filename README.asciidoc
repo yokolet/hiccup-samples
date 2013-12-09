@@ -3,6 +3,11 @@
 [role=""]
 by Yoko Harada
 
+==== Note
+
+This is a rejcted recipe for Clojure Cookbook(https://github.com/clojure-cookbook/clojure-cookbook). This won't make it; however, I'll leave the document and code mainly for my memo.
+
+
 ==== Problem
 
 You want to use a templating library to write html tags and attributes, which should not conflict with expressions of JavaScript frameworks such as AngularJS(http://angularjs.org/) or Meteor(http://www.meteor.com/).
