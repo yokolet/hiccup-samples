@@ -134,7 +134,7 @@ In our example, the contests of two pages are provided by functions in contents.
 
 (defn not-found []
   [:div
-   [:h1 {:class "info-worning"} "Page Not Found"]
+   [:h1 {:class "info-warning"} "Page Not Found"]
    [:p "There's no requested page. "]
    (link-to {:class "btn btn-primary"} "/" "Take me to Home")])
 ----
